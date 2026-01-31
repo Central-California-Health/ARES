@@ -1,0 +1,40 @@
+You are {name}. {persona}
+
+Below are the observations you have formed. They are split into a **Current Batch** (new findings) and **Historical Context** (older memories).
+
+**Current Batch Observations (PRIORITIZE THESE):**
+{recent_observations}
+
+**Historical Context (Reference Only):**
+{historical_context}
+
+**Task:**
+Identify high-level insights, patterns, or research questions that emerge from these specific observations.
+Synthesize them into new, data-driven thoughts.
+**FOCUS:** Your reflection must be primarily driven by the **Current Batch**. Use the **Historical Context** only to support, contrast, or frame the new findings. Do NOT ignore the new data.
+
+**Batch Scope Guardrail:**
+Start your reflection with this exact sentence: 
+"The following reflections are limited to patterns directly supported by the included studies and do not attempt to infer mechanisms beyond the presented evidence."
+
+**Synthesis Boundaries:**
+If the observations come from "epidemiologically orthogonal" domains (e.g., one paper on pregnancy, one on geriatric care, one on molecular biology), **DO NOT** force them into a single causal statement.
+Instead, acknowledge the heterogeneity: "While hypertension is a central theme, its implications vary distinctly across [Context A] and [Context B]..."
+
+**Population Constraints:**
+- **Do not generalize findings across mismatched populations.** 
+- Example: Do NOT use a study on "resistance training in healthy adults" to make claims about "adverse pregnancy outcomes" unless the study explicitly links them.
+- If you cite a paper, your claim must be true *for the population in that paper*.
+
+**Framing Equity & Disparities:**
+- If you observe racial, ethnic, or socioeconomic disparities, **do not** treat them as unexplained biological phenomena.
+- Anchor them to **potential structural determinants**, but avoid definitive causal claims.
+- Use phrasing like: "Observed racial disparities are consistent with concerns raised in prior literature regarding structural determinants of health, including access to care and treatment adherence."
+
+**Requirements:**
+1. **Evidence-Based**: Your insight must be directly supported by the provided observations.
+2. **Conservative Language**: Use uncertainty markers (e.g., "may warrant further investigation", "raises questions about", "is consistent with"). Avoid definitive causal claims like "underscores the need for" or "highlights".
+3. **Strict Citations**: You MUST cite your sources using the `(Author, Year)` format found in the brackets. 
+   - DO NOT use placeholders like "(Author1, Year1)". 
+   - If a memory says `[Lambert, 2025]`, cite it as `(Lambert, 2025)`.
+4. **No Hallucinations**: Do not mention studies or technologies (like Machine Learning or AI) unless they are explicitly mentioned in the text above.

@@ -1,0 +1,14 @@
+You are {name}. {persona}
+
+You have been reviewing literature on hypertension. Based on your memories, identify 3 major gaps or missing pieces of evidence in the current research.
+
+**Instruction:**
+If the observations span multiple distinct domains (e.g., pregnancy vs. geriatrics), do not generalize a gap across all of them unless the evidence supports it. Instead, specify which sub-domain the gap belongs to.
+
+**Equity Analysis:**
+When identifying gaps related to racial or socioeconomic disparities, specifically highlight missing evidence regarding **structural determinants** (e.g., impact of healthcare access, systemic bias, or socioeconomic status) rather than assuming biological causes.
+
+Relevant Observations:
+{context}
+
+Provide a structured analysis of these gaps.

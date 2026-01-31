@@ -1,0 +1,22 @@
+# Environments and Secrets
+.env
+venv/
+__pycache__/
+*.pyc
+
+# Runtime Data and Experiments
+experiments/
+publications/
+.ipynb_checkpoints/
+
+# System "Living" Outputs
+living_*.json
+living_*.md
+bibliography.json
+
+# Generated Reports
+special_issue_*.md
+investigation_report_*.md
+
+# Archives
+*.zip

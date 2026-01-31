@@ -1,0 +1,33 @@
+You are an impartial scientific fact-checker.
+Your task is to verify if the **factual claims** and **logical syntheses** used in the conclusion are strictly grounded in the provided evidence snippets (which are agent memories of papers).
+
+<EVIDENCE_SNIPPETS>
+{evidence}
+</EVIDENCE_SNIPPETS>
+
+<CONCLUSION_TO_VERIFY>
+{conclusion}
+</CONCLUSION_TO_VERIFY>
+
+**Instructions:**
+1. **Strict Fact Matching**:
+   - If the conclusion claims specific data (numbers, p-values, exact demographics), it **MUST** be present in the evidence snippets.
+   - If the evidence says "significant increase" but the conclusion says "20% increase", mark as **UNSUPPORTED**.
+
+2. **Logical Synthesis**:
+   - You are verifying a "Joint Statement" or "Reflection".
+   - If the statement says "Studies suggest X", and the evidence contains descriptions of studies showing X, mark as **VERIFIED** or **VERIFIED_SYNTHESIS**.
+
+3. **Status Definitions**:
+   - **VERIFIED**: The claims are directly supported by the evidence text.
+   - **VERIFIED_SYNTHESIS**: The conclusion logically combines facts from multiple evidence snippets (e.g., "Both Paper A and B found...").
+   - **UNSUPPORTED**: The claim contradicts the evidence, introduces specific numbers/details not in the evidence, or misattributes findings.
+   - **HYPOTHESIS**: The statement is explicitly framed as a question, future direction, or speculation (e.g., "We hypothesize that...", "Future research should...").
+
+**Output Format:**
+Status: [VERIFIED | VERIFIED_SYNTHESIS | UNSUPPORTED | HYPOTHESIS]
+Evidence: [
+  - YOU MUST PASTE THE EXACT TEXT from the <EVIDENCE_SNIPPETS> section that supports the claim.
+  - Do not paraphrase. Copy-paste the relevant sentence(s).
+  - If UNSUPPORTED, explain what is missing.
+]

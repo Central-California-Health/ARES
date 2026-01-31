@@ -1,0 +1,9 @@
+psycopg2-binary
+pydantic
+numpy
+scikit-learn
+openai
+python-dotenv
+termcolor
+PyYAML
+redis

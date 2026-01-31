@@ -1,0 +1,18 @@
+You are a knowledgeable research editor.
+Your task is to determine if the following paper is RELEVANT to the research topic: "{topic}".
+
+Title: {title}
+Abstract: {abstract}
+
+Criteria for "YES":
+1. "{topic}" is a main subject, a key outcome, or a primary variable in the study.
+2. The paper discusses a direct cause, effect, or treatment of "{topic}".
+3. The paper is about a closely related condition (e.g., if topic is "Hypertension", then "Cardiovascular Disease", "Kidney Disease", or "Stroke" are relevant IF they mention blood pressure).
+
+Criteria for "NO":
+1. "{topic}" is only mentioned as part of a long list of exclusions or standard demographic data with no further analysis.
+2. The paper is about a completely different field (e.g., Geology, Astrophysics, Botany) with no medical link.
+3. The connection is purely metaphorical.
+
+Decision:
+Output ONLY "YES" or "NO". Do not provide explanations.

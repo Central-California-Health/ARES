@@ -1,0 +1,178 @@
+[
+  {
+    "date": "2026-01-30T17:17:01.654967",
+    "target_file": "living_meta_analysis.md",
+    "scores": {
+      "organization": 4,
+      "clarity": 4,
+      "integration": 4
+    },
+    "critique": "The document is well-structured and clear, but could benefit from more concise summaries and tighter integration between sections to enhance overall cohesion.",
+    "hallucination_warning": false
+  },
+  {
+    "date": "2026-01-30T18:05:42.199794",
+    "target_file": "living_meta_analysis.md",
+    "scores": {
+      "organization": 4,
+      "clarity": 4,
+      "integration": 3
+    },
+    "critique": "The document is generally well-structured and clear, but could benefit from more cohesive integration of its various themes and findings.",
+    "hallucination_warning": false
+  },
+  {
+    "date": "2026-01-30T18:08:43.538107",
+    "target_file": "special_issue_advances_in_hypertension_management__integrating_risk_factors__interventions__and_vascular_mechanisms_20260130_1808.md",
+    "scores": {
+      "synthesis": 4,
+      "criticality": 5,
+      "voice": 5
+    },
+    "critique": "The draft demonstrates a strong ability to synthesize and critically evaluate the evidence, with a clear and authoritative editorial voice. However, it falls short of a perfect synthesis score due to occasional transitions between ideas that could be smoother, and some opportunities for deeper connections between findings are not fully explored.",
+    "hallucination_warning": false
+  },
+  {
+    "date": "2026-01-30T18:47:54.844037",
+    "target_file": "living_meta_analysis.md",
+    "scores": {
+      "organization": 4,
+      "clarity": 4,
+      "integration": 4
+    },
+    "critique": "The document is well-structured and clear, but could benefit from more concise summaries and tighter integration between sections to enhance overall cohesion.",
+    "hallucination_warning": false
+  },
+  {
+    "date": "2026-01-30T19:35:32.768627",
+    "target_file": "living_meta_analysis.md",
+    "scores": {
+      "organization": 4,
+      "clarity": 4,
+      "integration": 3
+    },
+    "critique": "The document is generally well-structured and clear, but could benefit from more cohesive integration of its various themes and findings.",
+    "hallucination_warning": false
+  },
+  {
+    "date": "2026-01-30T19:38:12.528163",
+    "target_file": "special_issue_advances_in_hypertension_management__integrating_environmental__physiological__and_interventional_perspectives_20260130_1938.md",
+    "scores": {
+      "synthesis": 5,
+      "criticality": 5,
+      "voice": 5
+    },
+    "critique": "The draft demonstrates exceptional synthesis, criticality, and editorial voice, weaving together diverse papers into a cohesive narrative while astutely identifying methodological limitations and proposing a visionary roadmap for future research. However, minor improvements could be made to further enhance the clarity and concision of certain sentences, ensuring an even smoother flow of ideas.",
+    "hallucination_warning": false
+  },
+  {
+    "date": "2026-01-30T20:26:39.255762",
+    "target_file": "living_meta_analysis.md",
+    "scores": {
+      "organization": 4,
+      "clarity": 4,
+      "integration": 4
+    },
+    "critique": "The document is well-structured and clear, but could benefit from more concise summaries and tighter integration between sections to enhance overall cohesion.",
+    "hallucination_warning": false
+  },
+  {
+    "date": "2026-01-31T00:14:11.636136",
+    "target_file": "living_meta_analysis.md",
+    "scores": {
+      "organization": 4,
+      "clarity": 4,
+      "integration": 4
+    },
+    "critique": "The document is well-structured and clear, but could benefit from more concise summaries and tighter integration between sections to enhance overall cohesion.",
+    "hallucination_warning": false
+  },
+  {
+    "date": "2026-01-31T00:17:01.257764",
+    "target_file": "special_issue_hypertension_management__integrating_risk_factors__non_pharmacological_interventions__and_mechanisms_20260131_0016.md",
+    "scores": {
+      "synthesis": 5,
+      "criticality": 5,
+      "voice": 5
+    },
+    "critique": "The draft demonstrates exceptional synthesis and critical analysis of the current evidence base on hypertension management, effectively identifying patterns and contradictions between findings to build a cohesive narrative. However, minor improvements could be made in further emphasizing the editorial vision for future research and its potential impact on public health.",
+    "hallucination_warning": false
+  },
+  {
+    "date": "2026-01-31T00:26:46.848757",
+    "target_file": "special_issue_advances_in_non_pharmacological_interventions_for_hypertension_management_20260131_0026.md",
+    "scores": {
+      "synthesis": 5,
+      "criticality": 5,
+      "voice": 5
+    },
+    "critique": "This editorial demonstrates a masterful synthesis of recent studies on non-pharmacological interventions for hypertension management, critically evaluating methodological strengths and limitations to provide a cohesive narrative. The writing is authoritative, academic, and visionary, making it an exemplary model for special issue editorials in the field of public health.",
+    "hallucination_warning": false
+  },
+  {
+    "date": "2026-01-31T00:32:38.250665",
+    "target_file": "special_issue_advances_in_non_pharmacological_interventions_for_hypertension_management_20260131_0032.md",
+    "scores": {
+      "synthesis": 5,
+      "criticality": 5,
+      "voice": 5
+    },
+    "critique": "The draft demonstrates exceptional synthesis and criticality, weaving together diverse studies to form a cohesive narrative while astutely identifying methodological limitations and gaps in the evidence base. The editorial voice is authoritative, academic, and visionary, proposing a clear roadmap for future research that addresses the complex interplay between lifestyle factors, environmental influences, and health outcomes.",
+    "hallucination_warning": false
+  },
+  {
+    "date": "2026-01-31T00:42:31.639031",
+    "target_file": "special_issue_advances_in_lifestyle_modifications_and_environmental_interventions_for_hypertension_management_20260131_0042.md",
+    "scores": {
+      "synthesis": 5,
+      "criticality": 5,
+      "voice": 5
+    },
+    "critique": "The draft demonstrates a masterful synthesis of the literature, critically evaluating the methodologies and findings of the included studies to build a cohesive narrative that highlights the need for a more nuanced approach to hypertension management. The writing is authoritative, academic, and visionary, making a compelling case for a paradigm shift in understanding hypertension management.",
+    "hallucination_warning": false
+  },
+  {
+    "date": "2026-01-31T00:49:55.154214",
+    "target_file": "special_issue_integrative_non_pharmacological_strategies_for_hypertension_management__from_dietary_interventions_to_environmental_modifiers_20260131_0049.md",
+    "scores": {
+      "synthesis": 5,
+      "criticality": 5,
+      "voice": 5
+    },
+    "critique": "The draft demonstrates exceptional synthesis, criticality, and editorial voice, effectively weaving together diverse research findings into a cohesive narrative that challenges prevailing assumptions about hypertension management. However, minor improvements could be made to further streamline the analysis and enhance the clarity of certain sentences.",
+    "hallucination_warning": false
+  },
+  {
+    "date": "2026-01-31T01:12:17.434779",
+    "target_file": "special_issue_lifestyle_interventions_and_modifiable_risk_factors_in_hypertension__current_evidence_and_controversies_20260131_0111.md",
+    "scores": {
+      "synthesis": 5,
+      "criticality": 5,
+      "voice": 5
+    },
+    "critique": "This draft demonstrates exceptional synthesis, criticality, and editorial voice, effectively weaving together diverse studies to highlight key themes and gaps in the evidence base. The writing is authoritative, precise, and visionary, with a clear call to action that is well-supported by the presented evidence.",
+    "hallucination_warning": false
+  },
+  {
+    "date": "2026-01-31T01:19:28.511246",
+    "target_file": "special_issue_signs_20260131_0119.md",
+    "scores": {
+      "synthesis": 5,
+      "criticality": 5,
+      "voice": 5
+    },
+    "critique": "This editorial demonstrates exceptional synthesis, criticality, and voice, weaving together diverse research findings into a cohesive narrative that challenges assumptions and highlights crucial gaps in the field. The writing is authoritative, precise, and visionary, making a compelling case for recalibrating priorities in predictive medicine to focus on equitable, scalable solutions.",
+    "hallucination_warning": false
+  },
+  {
+    "date": "2026-01-31T01:31:23.071679",
+    "target_file": "special_issue_controversies_in_blood_pressure_measurement_and_comorbidities_in_hypertension__impacts_on_clinical_outcomes_and_management_strategies_20260131_0130.md",
+    "scores": {
+      "synthesis": 5,
+      "criticality": 5,
+      "voice": 5
+    },
+    "critique": "The editorial demonstrates exceptional synthesis and criticality by weaving together diverse studies to highlight hypertension's dual role, while also meticulously addressing methodological limitations and advocating for equity-focused interventions. The writing is authoritative, precise, and visionary, making a compelling case for policy and practice changes, although it could benefit from slightly more concise language in certain sections.",
+    "hallucination_warning": false
+  }
+]
