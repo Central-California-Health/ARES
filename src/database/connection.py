@@ -1,4 +1,6 @@
 import os
+import json
+import datetime
 import psycopg2
 from psycopg2 import pool
 from psycopg2.extras import RealDictCursor
@@ -8,6 +10,8 @@ from contextlib import contextmanager
 class Database:
     def __init__(self):
         self.pool = None
+        self.demo_mode = False
+        self.demo_data = []
         self.connect()
 
     def connect(self):
@@ -25,17 +29,40 @@ class Database:
             self.create_tables()
         except Exception as e:
             print(f"Error connecting to database: {e}")
+            print("Falling back to DEMO MODE (loading demo_papers.jsonl)...")
+            self.demo_mode = True
+            self._load_demo_data()
+
+    def _load_demo_data(self):
+        try:
+            if os.path.exists("demo_papers.jsonl"):
+                with open("demo_papers.jsonl", "r") as f:
+                    for line in f:
+                        if line.strip():
+                            self.demo_data.append(json.loads(line))
+                print(f"Loaded {len(self.demo_data)} papers from demo_papers.jsonl")
+            else:
+                print("Warning: demo_papers.jsonl not found.")
+        except Exception as e:
+            print(f"Error loading demo data: {e}")
 
     @contextmanager
     def get_conn(self):
-        conn = self.pool.getconn()
-        try:
-            yield conn
-        finally:
-            self.pool.putconn(conn)
+        if self.pool:
+            conn = self.pool.getconn()
+            try:
+                yield conn
+            finally:
+                self.pool.putconn(conn)
+        else:
+            # Should not be called if checks are in place, but for safety:
+            yield None
 
     def create_tables(self):
         """Creates necessary tables for storing agent outputs."""
+        if self.demo_mode:
+            return
+
         queries = [
             """
             CREATE TABLE IF NOT EXISTS agent_insights (
@@ -80,6 +107,10 @@ class Database:
 
     def reset_tables(self):
         """Drops all agent tables and recreates them."""
+        if self.demo_mode:
+            print("[Demo Mode] Reset tables ignored.")
+            return
+
         print("Warning: Resetting database tables (Deleting all agent data)...")
         queries = [
             "DROP TABLE IF EXISTS agent_insights;",
@@ -98,6 +129,10 @@ class Database:
             print(f"Error resetting tables: {e}")
 
     def save_memory(self, agent_name: str, description: str, importance: float, embedding: List[float], created_at: Any, last_accessed: Any):
+        if self.demo_mode:
+            # print(f"[Demo Mode] Skipping memory save for {agent_name}")
+            return
+
         query = """
             INSERT INTO agent_memories 
             (agent_name, description, importance, embedding, created_at, last_accessed)
@@ -112,6 +147,9 @@ class Database:
             print(f"Error saving memory: {e}")
 
     def load_memories(self, agent_name: str) -> List[Dict[str, Any]]:
+        if self.demo_mode:
+            return []
+
         query = "SELECT description, importance, embedding, created_at, last_accessed FROM agent_memories WHERE agent_name = %s"
         try:
             with self.get_conn() as conn:
@@ -123,6 +161,9 @@ class Database:
             return []
 
     def save_insight(self, agent_name: str, paper_id: str, insight: str, themes: List[str] = None, quotes: List[str] = None):
+        if self.demo_mode:
+            return
+
         if themes is None:
             themes = []
         if quotes is None:
@@ -137,6 +178,9 @@ class Database:
             print(f"Error saving insight: {e}")
 
     def save_report(self, agent_name: str, report_type: str, content: str):
+        if self.demo_mode:
+            return
+
         query = "INSERT INTO agent_reports (agent_name, report_type, content) VALUES (%s, %s, %s)"
         try:
             with self.get_conn() as conn:
@@ -148,9 +192,12 @@ class Database:
 
     def fetch_papers(self, limit: int = 10, offset: int = 0, keywords: List[str] = None) -> List[Dict[str, Any]]:
         """
-        Fetches papers from the database.
+        Fetches papers from the database or demo file.
         Strictly filters for keywords in title, abstract, or summary.
         """
+        if self.demo_mode:
+            return self._fetch_papers_demo(limit, offset, keywords)
+
         if not self.pool:
             return []
         
@@ -208,11 +255,56 @@ class Database:
             print(f"Error fetching papers: {e}")
             return []
 
+    def _fetch_papers_demo(self, limit: int = 10, offset: int = 0, keywords: List[str] = None) -> List[Dict[str, Any]]:
+        """
+        In-memory implementation of fetch_papers for demo mode.
+        """
+        filtered_data = self.demo_data
+        
+        # 1. Blocklist Filter (Howaldt)
+        filtered_data = [
+            p for p in filtered_data 
+            if "Howaldt" not in str(p.get('authors', ''))
+        ]
+        
+        # 2. Keyword Filter
+        if keywords:
+            cleaned_keywords = [k.lower().strip() for k in keywords if k.strip()]
+            if cleaned_keywords:
+                matched_papers = []
+                for paper in filtered_data:
+                    # Construct searchable text
+                    text = (
+                        str(paper.get('title', '')) + " " + 
+                        str(paper.get('abstract', '')) + " " + 
+                        str(paper.get('description', ''))
+                    ).lower()
+                    
+                    # OR Logic: Match any keyword
+                    if any(k in text for k in cleaned_keywords):
+                        matched_papers.append(paper)
+                filtered_data = matched_papers
+
+        # 3. Pagination
+        # Note: demo_data is assumed to be already sorted by date desc from export
+        start = offset
+        end = offset + limit
+        
+        # Slice safely
+        if start >= len(filtered_data):
+            return []
+            
+        return filtered_data[start:end]
+
     def fetch_insights_with_details(self, agent_name: str = None, limit: int = 20) -> List[Dict[str, Any]]:
         """
         Fetches insights joined with the original paper details.
         Useful for second-pass agents to review specific claims/quotes against the source text.
         """
+        if self.demo_mode:
+            # Demo mode currently does not support insights retrieval as we don't save them
+            return []
+
         if not self.pool:
             return []
 
